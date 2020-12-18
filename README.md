@@ -87,16 +87,16 @@ The app's functionality includes:
 
 
 
-### 4. Technology (done)
+### 4. Technology 
 * Front-End: HTML5, CSS3, JavaScript, JQuery, APIs
 
 
-### 5. Wireframes (to do now)
-(Example) Landing Page
+### 5. Wireframes 
+Landing Page
 :-------------------------:
-![Landing Page](/github-images/wireframes/landing-page-wireframe.png)
-Register Page
-![Register Page](/github-images/wireframes/register-page-wireframe.png)
+![Landing Page](/github-images/wireframes/landing-page.jpg)
+Search Page
+![Search Page](/github-images/wireframes/search-page.jpg)
 
 
 
