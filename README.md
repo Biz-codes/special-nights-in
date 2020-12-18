@@ -7,12 +7,12 @@ Today, there are many reasons why people are celebrating with nights in rather t
 Whatever your concerns, you can now find the perfect combination of a special cocktail recipe, and a special meal recipe, to make your loved ones feel special on those special occasions spent at home!
 
 
-### 1. Working Prototype (to do later)
-(Example) You can access a working prototype of the app here: https://biz-codes.github.io/special-nights-in
+### 1. Working Prototype 
+You can access a working prototype of the app here: https://biz-codes.github.io/special-nights-in
 
 
 
-### 2. User Stories (to do now)
+### 2. User Stories
 This app is for visitors.
 
 ###### Landing Page (Importance - High) (Est: 0.5h)
@@ -71,9 +71,19 @@ This app is for visitors.
 * so that I can access all the features of the search.
 
 
-### 3. Functionality (to do now)
+### 3. Functionality
 The app's functionality includes:
-* (Example) Every User has the ability to create an account
+* search for Cocktail recipes by ingredient
+* filter cocktail results by alcoholic
+* search for meal recipes by name
+* filter meal results by main ingredient
+* see cocktail and meal results displayed side by side
+* see a thumbnail image for each recipe
+* limit the amount of results I see at a time
+* open recipes in a new tab
+* use accessibility features such as text-to-speech and navigation via keyboard
+* access the site easily using visuals and default options, without too many steps
+
 
 
 
