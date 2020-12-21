@@ -10,22 +10,22 @@ const mealSearchURL='https://www.themealdb.com/api/json/v1/1/search.php';
 
 //Start Screen
 function introScreen() {
-    return `
+    let htmlOutput= `
     <section id="intro-screen">
-        <img src="" alt="">
-        <h1> Special Nights In</h1>
+        <img src="website-images/hero-image.jpg" alt="people partying" class="hero-image">
         <p>Do you ever find that celebrating a special occasion while staying at home just doesn't feel so special?</p> 
         <p> Today, there are many reasons why people are celebrating with nights in rather than nights out, ranging from: accessibility concerns for persons with disabilities; to budgetary concerns
         about the high cost of eating out; to safety concerns about exposure to COVID-19.</p>
         <p>Whatever your concerns, you can now find the perfect combination of a special cocktail recipe, and a special meal recipe, to make your loved ones feel special on those special occasions
         spent at home! </p>
       <button id="start" type='submit'>Try It!</button>
-    </div>
+    </section>
     `;
+    $("main").html(htmlOutput);
   }
 
 function searchScreen() {
-    return `
+    let htmlOutput= `
     <section id ="search-page">
         <div id="cocktails">
             <h2>Cocktail Search:</h2>
@@ -54,7 +54,9 @@ function searchScreen() {
             </form>
             <div id="meal-results" class="hidden">
                 <h3>Special Meals:</h2>
-                <ul class="meal-list"></ul>
+                <ul class="meal-list">
+                    <li></li>
+                </ul>
             </div>
             <div id="meal-error-msg" class="hidden">
                 <p>
@@ -65,6 +67,7 @@ function searchScreen() {
 
     </section>
     `
+    $("main").html(htmlOutput);
 }
 
 function handleStartClick() {
@@ -178,12 +181,14 @@ function getMeals(query, maxResults=5) {
 
 }
 
-
-function watchForm(){
-
+//run this when the page loads
+function startUp(){
+    //introScreen()
+    //handleStartClick()
+    searchScreen()
 }
 
-$(introScreen)
+$(startUp)
 
 /*       
 
