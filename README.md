@@ -17,18 +17,18 @@ This app is for visitors.
 
 ###### Landing Page (Importance - High) (Est: 0.5h)
 * as a visitor
-* I want to land on the main page of this applicationa nd read about it,
+* I want to land on the main page of this application and read about it,
 * so I can decide if I want to use it.
 
 ###### Search Page (Importance - High) (Est: 2h)
 * as a visitor
-* I want to search for Cocktail recipes by ingredient,
-* so I can see the details of the cocktails that have that ingredient.
+* I want to search for cocktail recipes by name,
+* so I can see the details of the cocktails that match that name.
 
 ###### Search Page (Importance - Medium) (Est: 1h)
 * as a visitor
-* I want to filter cocktail results by alcoholic,
-* so I can see the details of only the cocktails that have that alcohol type.
+* I want to filter cocktail results by ingredient,
+* so I can see the details of only the cocktails that have that ingredient.
 
 ###### Search Page (Importance - High) (Est: 2h)
 * as a visitor
@@ -73,8 +73,8 @@ This app is for visitors.
 
 ### 3. Functionality
 The app's functionality includes:
-* search for Cocktail recipes by ingredient
-* filter cocktail results by alcoholic
+* search for cocktail recipes by name
+* filter cocktail results by ingredient
 * search for meal recipes by name
 * filter meal results by main ingredient
 * see cocktail and meal results displayed side by side
@@ -104,6 +104,32 @@ Search Page
 API Documentation details:
 * (Example) get all users
 
+
+Search cocktail by name
+https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+Search by ingredient
+https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+List the categories, glasses, ingredients or alcoholic filters
+https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
+https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
+https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
+https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
+Drink thumbnails
+Add /preview to the end of the cocktail image URL
+https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
+
+Search meal by name
+https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+Filter by main ingredient
+https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
+List all Categories, Area, Ingredients
+https://www.themealdb.com/api/json/v1/1/list.php?c=list
+https://www.themealdb.com/api/json/v1/1/list.php?a=list
+https://www.themealdb.com/api/json/v1/1/list.php?i=list
+Meal Thumbnail Images
+Add /preview to the end of the meal image URL
+https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview
 
 
 ### 7. Screenshots (to do later)
