@@ -25,16 +25,16 @@ function introScreen() {
   }
 
 function searchScreen() {
-    return`
+    return `
     <section id ="search-page">
         <div id="cocktails">
             <h2>Cocktail Search:</h2>
             <form id="cocktail-search">
-                <label for="cocktail-ingredient">Type a special ingredient to find recipes.</label>
-                <input type="text" id="cocktail-ingredient" name="cocktail-ingredient" placeholder: "lime" required>
+                <label for="cocktail-ingredient">Type the name of a special cocktail to find recipes.</label>
+                <input type="text" id="cocktail-name" name="cocktail-name" placeholder: "margarita" required>
                 <input class="button" id="submit-cocktail" type="submit" value="Go!">
             </form>
-            <div id="results" class="hidden">
+            <div id="cocktail-results" class="hidden">
                 <h3>Special Cocktails:</h2>
                 <ul class="cocktail-list"></ul>
             </div>
@@ -52,7 +52,7 @@ function searchScreen() {
                 <input type="text" id="meal-name" name="meal-name" placeholder: "curry" required>
                 <input class="button" id="submit-meal" type="submit" value="Go!">
             </form>
-            <div id="results" class="hidden">
+            <div id="meal-results" class="hidden">
                 <h3>Special Meals:</h2>
                 <ul class="meal-list"></ul>
             </div>
@@ -82,31 +82,127 @@ function formatQueryParams(params) {
 
 
 function displayCocktailRecipes(responseJson){
+    console.log(responseJson);
+    // iterate through the data array
+    for (let i = 0; i < responseJson.data.length; i++){
+    // for each recipe object in the data 
+    //array, add a list item to the results 
+    //with thumbnail
+    
+      $('#cocktail-results').append(
+        `<li>
+          <h3>
+            <a href='${responseJson.data[i].url}'>${responseJson.data[i].fullName}</a>
+          </h3>
+          <p>${responseJson.data[i].description}</p>
+        </li>`
+      )
+    };
+  //display the results section  
+  $('#cocktail-results').removeClass('hidden');
+};
 
-}
 
 function displayMealRecipes(responseJson){
-
+    console.log(responseJson);
+    // iterate through the data array
+    for (let i = 0; i < responseJson.data.length; i++){
+    // for each recipe object in the data 
+    //array, add a list item to the results 
+    //with thumbnail
+    
+      $('#meal-results').append(
+        `<li>
+          <h3>
+            <a href='${responseJson.data[i].url}'>${responseJson.data[i].fullName}</a>
+          </h3>
+          <p>${responseJson.data[i].description}</p>
+        </li>`
+      )
+    };
+  //display the results section  
+  $('#meal-results').removeClass('hidden');
 }
 
 
+function getCocktails(query, maxResults=5) {
+    console.log(getCocktails);
+    const params = {
+        q: query,
+        api_key: apiKey,
+        limit: maxResults
+  };
+  const queryString = formatQueryParams(params);
+  const url = searchURL + '?' + queryString;
 
-function getCocktails() {
+  console.log(url)
+
+  fetch(url)
+    .then(response => {
+    console.log(response);
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {
+      $('#js-error-message').text(`Oh no! ${err.message}`);
+    });
+}
+
+function getMeals(query, maxResults=5) {
+    console.log(getMeals);
+    const params = {
+        q: query,
+        api_key: apiKey,
+        limit: maxResults
+  };
+  const queryString = formatQueryParams(params);
+  const url = searchURL + '?' + queryString;
+
+  console.log(url)
+
+  fetch(url)
+    .then(response => {
+    console.log(response);
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {
+      $('#js-error-message').text(`Oh no! ${err.message}`);
+    });
 
 }
 
-function getMeals() {
-
-}
-
-fetch(url)
 
 function watchForm(){
 
 }
 
+$(introScreen)
 
 /*       
 
+
+
+function watchForm() {
+  $('form').submit(event => {
+    event.preventDefault();
+    $('#js-error-message').empty();
+    $('#results-list').empty();
+    const stateArray = $('#js-search-term').val().split(',');
+    const maxResults = $('#js-max-results').val();
+    getParks(stateArray, maxResults);
+  });
+}
+
+$(function() {
+  console.log("I'm listening...");
+  watchForm();
+});
+*/
        
-        */
