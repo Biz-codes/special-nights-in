@@ -100,36 +100,28 @@ Search Page
 
 
 
-### 6. API Documentation (to do later)
-API Documentation details:
-* (Example) get all users
+### 6. API Documentation 
 
+#### CocktailDB API
+* Search cocktail by name: https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+* Filter by ingredient: 
+    * https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+    * https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+* List the categories, glasses, ingredients or alcoholic filters:
+    * https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
+    * https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
+    * https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
+    * https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
+* Add /preview to the end of the cocktail image URL: https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
 
-Search cocktail by name
-https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-Search by ingredient
-https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
-List the categories, glasses, ingredients or alcoholic filters
-https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
-https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
-https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
-https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
-Drink thumbnails
-Add /preview to the end of the cocktail image URL
-https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
-
-Search meal by name
-https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
-Filter by main ingredient
-https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
-List all Categories, Area, Ingredients
-https://www.themealdb.com/api/json/v1/1/list.php?c=list
-https://www.themealdb.com/api/json/v1/1/list.php?a=list
-https://www.themealdb.com/api/json/v1/1/list.php?i=list
-Meal Thumbnail Images
-Add /preview to the end of the meal image URL
-https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview
+#### MealDB API
+* Search meal by name: https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+* Filter by main ingredient: https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
+* List all Categories, Area, Ingredients:
+    * https://www.themealdb.com/api/json/v1/1/list.php?c=list
+    * https://www.themealdb.com/api/json/v1/1/list.php?a=list
+    * https://www.themealdb.com/api/json/v1/1/list.php?i=list
+* Add /preview to the end of the meal image URL: https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview
 
 
 ### 7. Screenshots (to do later)
