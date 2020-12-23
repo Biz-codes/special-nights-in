@@ -2,9 +2,7 @@
 
 //api keys and baseURLs
 
-const cocktailDBapiKey= '1';
 const cocktailSearchURL= 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
-const mealDBapiKey= '1';
 const mealSearchURL='https://www.themealdb.com/api/json/v1/1/search.php';
 // These functions return HTML templates
 
@@ -24,6 +22,7 @@ function introScreen() {
     $("main").html(htmlOutput);
   }
 
+
 function searchScreen() {
     let htmlOutput= `
     <section id ="search-page">
@@ -36,7 +35,20 @@ function searchScreen() {
             </form>
             <div id="cocktail-results" class="hidden">
                 <h3>Special Cocktails:</h2>
-                <ul class="cocktail-list"></ul>
+                <ul class="cocktail-list">
+                    <li>
+                        <h3>Margarita</h3>
+                        <img src= "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" class="drink-image">
+                        <ul class="ingredient-list">
+                            <li>Tequila (with image????)</li>
+                            <li>Triple sec</li>
+                            <li>lime juice</li>
+                            <li>salt</li>
+                        </ul>
+                        <p>Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. 
+                        The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.</p>
+                    </li>
+                </ul>
             </div>
             <div id="cocktail-error-msg" class="hidden">
                 <p>
@@ -83,7 +95,6 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
-
 function displayCocktailRecipes(responseJson){
     console.log(responseJson);
     // iterate through the data array
@@ -95,9 +106,12 @@ function displayCocktailRecipes(responseJson){
       $('#cocktail-results').append(
         `<li>
           <h3>
-            <a href='${responseJson.data[i].url}'>${responseJson.data[i].fullName}</a>
+            <a href='${responseJson.data[i].strDrink}'</a>
           </h3>
-          <p>${responseJson.data[i].description}</p>
+          <img src='${responseJson.data[i].strDrinkThumb}'>
+          <ul>
+            <li>${responseJson.data[i].strIngredient1}'</li>
+          <p>${responseJson.data[i].drinkInstructions}</p>
         </li>`
       )
     };
@@ -116,11 +130,14 @@ function displayMealRecipes(responseJson){
     
       $('#meal-results').append(
         `<li>
-          <h3>
-            <a href='${responseJson.data[i].url}'>${responseJson.data[i].fullName}</a>
-          </h3>
-          <p>${responseJson.data[i].description}</p>
-        </li>`
+        <h3>
+          <a href='${responseJson.data[i].strMeal}'</a>
+        </h3>
+        <img src='${responseJson.data[i].strMealThumb}'>
+        <ul>
+          <li>${responseJson.data[i].strIngredient1}'</li>
+        <p>${responseJson.data[i].MealInstructions}</p>
+      </li>
       )
     };
   //display the results section  
@@ -128,12 +145,14 @@ function displayMealRecipes(responseJson){
 }
 
 
-function getCocktails(query, maxResults=5) {
+function getCocktails(searchTerm) {
     console.log(getCocktails);
     const params = {
-        q: query,
-        api_key: apiKey,
-        limit: maxResults
+        s: searchTerm,
+        strDrink: drinkName,
+        strInstructions: drinkInstructions,
+        strDrinkThumb: drinkImage,
+        strIngredient1: //can I create a for loop for these ingredients too?? I also want the thumbnails of the ingredients to show.
   };
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
@@ -154,12 +173,14 @@ function getCocktails(query, maxResults=5) {
     });
 }
 
-function getMeals(query, maxResults=5) {
+function getMeals(searchTerm) {
     console.log(getMeals);
     const params = {
-        q: query,
-        api_key: apiKey,
-        limit: maxResults
+        s: searchTerm,
+        strMeal: mealName,
+        strInstructions: mealInstructions,
+        strMealThumb: mealImage,
+        strIngredient1: //can I create a for loop for these ingredients too?? I also want the thumbnails of the ingredients to show.
   };
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
