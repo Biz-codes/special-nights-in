@@ -112,7 +112,11 @@ Search Page
     * https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
     * https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
     * https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
-* Add /preview to the end of the cocktail image URL: https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
+* Show preview image of cocktail: Add /preview to the end of the cocktail image URL: https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
+* Show preview image of ingredients: 
+    * https://www.thecocktaildb.com/images/ingredients/gin-Small.png (100x100 pixels)
+    * https://www.thecocktaildb.com/images/ingredients/gin-Medium.png (350x350 pixels)
+    * https://www.thecocktaildb.com/images/ingredients/gin.png (700x700 pixels)
 
 #### MealDB API
 * Search meal by name: https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
@@ -121,7 +125,10 @@ Search Page
     * https://www.themealdb.com/api/json/v1/1/list.php?c=list
     * https://www.themealdb.com/api/json/v1/1/list.php?a=list
     * https://www.themealdb.com/api/json/v1/1/list.php?i=list
-* Add /preview to the end of the meal image URL: https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview
+* Show preview image of meal: Add /preview to the end of the meal image URL: https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview
+* Show preview image of ingredients:
+    * https://www.themealdb.com/images/ingredients/Lime.png
+    * https://www.themealdb.com/images/ingredients/Lime-Small.png
 
 
 ### 7. Screenshots (to do later)
