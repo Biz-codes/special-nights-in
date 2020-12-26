@@ -62,7 +62,7 @@ function searchScreen() {
             <h2>Meal Search:</h2>
             <form id="meal-search">
                 <label for="meal-name">Type the name of a special meal to find recipes.</label>
-                <input type="text" id="meal-name" name="meal-name" placeholder: "curry" required>
+                <input type="text" id="meal-name" name="meal-name" value= "tacos" required>
                 <input class="button" id="submit-meal" type="submit" value="Go!">
             </form>
             <div id="meal-results" class="hidden">
@@ -97,12 +97,29 @@ function handleCocktailSearch() {
         let searchTerm = $('#cocktail-name').val();
         //console.log(searchTerm)
         //if the search term is empty, display an error
-        if (searchTerm=="") {
+        if (searchTerm == "") {
             alert("Please input a cocktail name.");
         }
         //if the search term is valid, send it to the function to make the api call
         else {
             getCocktails(searchTerm)
+        }
+    });
+}
+
+function handleMealSearch() {
+    $('main').on('submit', '#meal-search', (event) => {
+        event.preventDefault();
+        //console.log("inside handleMealSearch")
+        let searchTerm = $('#meal-name').val();
+        //console.log(searchTerm)
+        //if the search term is empty, display an error
+        if (searchTerm == "") {
+            alert("Please input a meal name.");
+        }
+        //if the search term is valid, send it to the function to make the api call
+        else {
+            getMeals(searchTerm)
         }
     });
 }
@@ -115,7 +132,7 @@ function formatQueryParams(params) {
 
 function displayCocktailRecipes(responseJson) {
     console.log(responseJson);
-
+    $('#cocktail-results').empty();
 
 
 
@@ -179,20 +196,25 @@ function displayCocktailRecipes(responseJson) {
 
     // iterate through the data array
     for (let i = 0; i < responseJson.drinks.length; i++) {
-        // for each recipe object in the data 
+        // for each recipe object in the cocktails 
         //array, add a list item to the results 
         //with thumbnail
 
         $('#cocktail-results').append(
-            `<li>
-          <h3>
-            <a href='${responseJson.drinks[i].strDrink}'</a>
-          </h3>
-          <img src='${responseJson.drinks[i].strDrinkThumb}'>
-          <ul>
-            <li>${responseJson.drinks[i].strIngredient1}'</li>
-          <p>${responseJson.drinks[i].drinkInstructions}</p>
-        </li>`
+            `<li class="recipe">
+                <h3>${responseJson.drinks[i].strDrink}</h3>
+                <img src='${responseJson.drinks[i].strDrinkThumb}' class='thumb'>
+                <ul>
+                    <li>${responseJson.drinks[i].strMeasure1} ${responseJson.drinks[i].strIngredient1}</li>
+                    <li>${responseJson.drinks[i].strMeasure2} ${responseJson.drinks[i].strIngredient2}</li>
+                    <li>${responseJson.drinks[i].strMeasure3} ${responseJson.drinks[i].strIngredient3}</li>
+                    <li>${responseJson.drinks[i].strMeasure4} ${responseJson.drinks[i].strIngredient4}</li>
+                    <li>${responseJson.drinks[i].strMeasure5} ${responseJson.drinks[i].strIngredient5}</li>
+                    <li>${responseJson.drinks[i].strMeasure6} ${responseJson.drinks[i].strIngredient6}</li>
+                    <li>${responseJson.drinks[i].strMeasure7} ${responseJson.drinks[i].strIngredient7}</li>
+                </ul>
+                <p>${responseJson.drinks[i].strInstructions}</p>
+            </li>`
         )
     };
     //display the results section  
@@ -202,27 +224,88 @@ function displayCocktailRecipes(responseJson) {
 
 function displayMealRecipes(responseJson) {
     console.log(responseJson);
-    // iterate through the data array
-    for (let i = 0; i < responseJson.data.length; i++) {
-        // for each recipe object in the data 
+    $('#meal-results').empty();
+    // iterate through the meal array
+    for (let i = 0; i < responseJson.meals.length; i++) {
+        // for each recipe object in the meals 
         //array, add a list item to the results 
         //with thumbnail
 
         $('#meal-results').append(
-            `<li>
-        <h3>
-          <a href='${responseJson.data[i].strMeal}'</a>
-        </h3>
-        <img src='${responseJson.data[i].strMealThumb}'>
-        <ul>
-          <li>${responseJson.data[i].strIngredient1}'</li>
-        <p>${responseJson.data[i].MealInstructions}</p>
-      </li>`
+            `<li class="recipe">
+                <h3>${responseJson.meals[i].strMeal}</h3>
+                <img src='${responseJson.meals[i].strMealThumb}' class='thumb'>
+                <ul>
+                    <li>${responseJson.meals[i].strMeasure1} ${responseJson.meals[i].strIngredient1}</li>
+                    <li>${responseJson.meals[i].strMeasure2} ${responseJson.meals[i].strIngredient2}</li>
+                    <li>${responseJson.meals[i].strMeasure3} ${responseJson.meals[i].strIngredient3}</li>
+                    <li>${responseJson.meals[i].strMeasure4} ${responseJson.meals[i].strIngredient4}</li>
+                    <li>${responseJson.meals[i].strMeasure5} ${responseJson.meals[i].strIngredient5}</li>
+                    <li>${responseJson.meals[i].strMeasure6} ${responseJson.meals[i].strIngredient6}</li>
+                    <li>${responseJson.meals[i].strMeasure7} ${responseJson.meals[i].strIngredient7}</li>
+                    <li>${responseJson.meals[i].strMeasure8} ${responseJson.meals[i].strIngredient8}</li>
+                    <li>${responseJson.meals[i].strMeasure9} ${responseJson.meals[i].strIngredient9}</li>
+                    <li>${responseJson.meals[i].strMeasure10} ${responseJson.meals[i].strIngredient10}</li>
+                </ul>
+                <p>${responseJson.meals[i].strInstructions}</p>
+            </li>`
         )
     };
     //display the results section  
     $('#meal-results').removeClass('hidden');
 }
+
+ // "idMeal": "52771",
+    // "strMeal": "Spicy Arrabiata Penne",
+    // "strDrinkAlternate": null,
+    // "strCategory": "Vegetarian",
+    // "strArea": "Italian",
+    // "strInstructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.",
+    // "strMealThumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+    // "strTags": "Pasta,Curry",
+    // "strYoutube": "https://www.youtube.com/watch?v=1IszT_guI08",
+    // "strIngredient1": "penne rigate",
+    // "strIngredient2": "olive oil",
+    // "strIngredient3": "garlic",
+    // "strIngredient4": "chopped tomatoes",
+    // "strIngredient5": "red chile flakes",
+    // "strIngredient6": "italian seasoning",
+    // "strIngredient7": "basil",
+    // "strIngredient8": "Parmigiano-Reggiano",
+    // "strIngredient9": "",
+    // "strIngredient10": "",
+    // "strIngredient11": "",
+    // "strIngredient12": "",
+    // "strIngredient13": "",
+    // "strIngredient14": "",
+    // "strIngredient15": "",
+    // "strIngredient16": null,
+    // "strIngredient17": null,
+    // "strIngredient18": null,
+    // "strIngredient19": null,
+    // "strIngredient20": null,
+    // "strMeasure1": "1 pound",
+    // "strMeasure2": "1/4 cup",
+    // "strMeasure3": "3 cloves",
+    // "strMeasure4": "1 tin ",
+    // "strMeasure5": "1/2 teaspoon",
+    // "strMeasure6": "1/2 teaspoon",
+    // "strMeasure7": "6 leaves",
+    // "strMeasure8": "spinkling",
+    // "strMeasure9": "",
+    // "strMeasure10": "",
+    // "strMeasure11": "",
+    // "strMeasure12": "",
+    // "strMeasure13": "",
+    // "strMeasure14": "",
+    // "strMeasure15": "",
+    // "strMeasure16": null,
+    // "strMeasure17": null,
+    // "strMeasure18": null,
+    // "strMeasure19": null,
+    // "strMeasure20": null,
+    // "strSource": null,
+    // "dateModified": null
 
 
 function getCocktails(searchTerm) {
@@ -250,16 +333,12 @@ function getCocktails(searchTerm) {
 }
 
 function getMeals(searchTerm) {
-    console.log(getMeals);
+    console.log(searchTerm);
     const params = {
         s: searchTerm,
-        strMeal: mealName,
-        strInstructions: mealInstructions,
-        strMealThumb: mealImage,
-        strIngredient1: firstIngredient, //can I create a for loop for these ingredients too?? I also want the thumbnails of the ingredients to show.
     };
     const queryString = formatQueryParams(params);
-    const url = searchURL + '?' + queryString;
+    const url = mealSearchURL + '?' + queryString;
 
     console.log(url)
 
@@ -271,7 +350,7 @@ function getMeals(searchTerm) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson))
+        .then(responseJson => displayMealRecipes(responseJson))
         .catch(err => {
             $('#js-error-message').text(`Oh no! ${err.message}`);
         });
@@ -280,31 +359,12 @@ function getMeals(searchTerm) {
 
 //run this when the page loads
 function startUp() {
-    //introScreen()
-    //handleStartClick()
+    introScreen()
+    handleStartClick()
     handleCocktailSearch()
-    searchScreen()
+    handleMealSearch()
+    //searchScreen()
 }
 
 $(startUp)
 
-/*       
-
-
-
-function watchForm() {
-  $('form').submit(event => {
-    event.preventDefault();
-    $('#js-error-message').empty();
-    $('#results-list').empty();
-    const stateArray = $('#js-search-term').val().split(',');
-    const maxResults = $('#js-max-results').val();
-    getParks(stateArray, maxResults);
-  });
-}
-
-$(function() {
-  console.log("I'm listening...");
-  watchForm();
-});
-*/

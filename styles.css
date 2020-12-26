@@ -92,8 +92,13 @@ h6 {
     font-family: cursive;
 }
 
+h1 {
+    font-size: 200%
+}
+
 h2 {
     color: #0E4EB4;
+    font-size: 150%;
 }
 
 input,
@@ -133,6 +138,23 @@ label {
 img {
     width: 100%;
 }
+
+.thumb {
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+li {
+    list-style: none;
+}
+
+.recipe {
+    padding: 30px;
+}
+
 
 /*
 The clearfix Hack: If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container
