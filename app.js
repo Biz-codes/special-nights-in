@@ -33,11 +33,11 @@ function searchScreen() {
                 <input type="text" id="cocktail-name" name="cocktail-name" value="margarita" required>
                 <input class="button" id="submit-cocktail" type="submit" value="Go!">
             </form>
+            <h3 id="cocktail-heading" class="hidden">Special Cocktails:</h3>
             <div id="cocktail-results" class="hidden">
-                <h3>Special Cocktails:</h3>
                 <ul class="cocktail-list">
                     <li>
-                        <h3>Margarita</h3>
+                        <h4>Margarita</h4>
                         <img src= "https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" class="drink-image">
                         <ul class="ingredient-list">
                             <li>Tequila
@@ -65,8 +65,8 @@ function searchScreen() {
                 <input type="text" id="meal-name" name="meal-name" value= "tacos" required>
                 <input class="button" id="submit-meal" type="submit" value="Go!">
             </form>
+            <h3 id="meal-heading" class="hidden">Special Meals:</h3>
             <div id="meal-results" class="hidden">
-                <h3>Special Meals:</h2>
                 <ul class="meal-list">
                     <li></li>
                 </ul>
@@ -202,7 +202,7 @@ function displayCocktailRecipes(responseJson) {
 
         $('#cocktail-results').append(
             `<li class="recipe">
-                <h3>${responseJson.drinks[i].strDrink}</h3>
+                <h4>${responseJson.drinks[i].strDrink}</h4>
                 <img src='${responseJson.drinks[i].strDrinkThumb}' class='thumb'>
                 <ul>
                     <li>${responseJson.drinks[i].strMeasure1} ${responseJson.drinks[i].strIngredient1}</li>
@@ -218,6 +218,7 @@ function displayCocktailRecipes(responseJson) {
         )
     };
     //display the results section  
+    $('#cocktail-heading').removeClass('hidden');
     $('#cocktail-results').removeClass('hidden');
 };
 
@@ -233,7 +234,7 @@ function displayMealRecipes(responseJson) {
 
         $('#meal-results').append(
             `<li class="recipe">
-                <h3>${responseJson.meals[i].strMeal}</h3>
+                <h4>${responseJson.meals[i].strMeal}</h4>
                 <img src='${responseJson.meals[i].strMealThumb}' class='thumb'>
                 <ul>
                     <li>${responseJson.meals[i].strMeasure1} ${responseJson.meals[i].strIngredient1}</li>
@@ -252,6 +253,7 @@ function displayMealRecipes(responseJson) {
         )
     };
     //display the results section  
+    $('#meal-heading').removeClass('hidden');
     $('#meal-results').removeClass('hidden');
 }
 
