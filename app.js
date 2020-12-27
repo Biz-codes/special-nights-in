@@ -6,16 +6,44 @@ const cocktailSearchURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.ph
 const mealSearchURL = 'https://www.themealdb.com/api/json/v1/1/search.php';
 // These functions return HTML templates
 
+function checkInteger(inputInteger) {
+    let outputValue = inputInteger;
+    if (inputInteger == "") {
+        outputValue = 0;
+    }
+    if (inputInteger === undefined) {
+        outputValue = 0;
+    }
+    if (inputInteger == null) {
+        outputValue = "";
+    }
+    return outputValue;
+}
+//returns empty string if the string is NOT valid
+function checkString(inputString) {
+    let outputText = inputString;
+    if (inputString === undefined) {
+        outputText = "";
+    }
+    if (inputString == null) {
+        outputText = "";
+    }
+    if (inputString == "") {
+        outputText = "";
+    }
+    return outputText;
+}
+
 //Start Screen
 function introScreen() {
     let htmlOutput = `
     <section id="intro-screen">
         <img src="website-images/hero-image.jpg" alt="people partying" class="hero-image">
         <p>Do you ever find that celebrating a special occasion while staying at home just doesn't feel so special?</p> 
-        <p> Today, there are many reasons why people are celebrating with nights in rather than nights out, ranging from: accessibility concerns for persons with disabilities; to budgetary concerns
-        about the high cost of eating out; to safety concerns about exposure to COVID-19.</p>
-        <p>Whatever your concerns, you can now find the perfect combination of a special cocktail recipe, and a special meal recipe, to make your loved ones feel special on those special occasions
-        spent at home! </p>
+        <p> Today, there are many reasons why people are celebrating with nights in rather than nights out, ranging from: accessibility concerns for persons with disabilities; 
+        to budgetary concerns about the high cost of eating out; to safety concerns about exposure to COVID-19.</p>
+        <p>Whatever your concerns, you can now find the perfect combination of a special cocktail recipe and a special meal recipe, to make your loved ones feel special 
+        on those special occasions spent at home! </p>
       <button id="start" type='submit'>Try It!</button>
     </section>
     `;
@@ -25,13 +53,13 @@ function introScreen() {
 
 function searchScreen() {
     let htmlOutput = `
-    <section id ="search-page">
+    <section id ="search-page" class="search-page">
         <div id="cocktails">
             <h2>Cocktail Search:</h2>
             <form id="cocktail-search">
                 <label for="cocktail-ingredient">Type the name of a special cocktail to find recipes.</label>
                 <input type="text" id="cocktail-name" name="cocktail-name" value="margarita" required>
-                <input class="button" id="submit-cocktail" type="submit" value="Go!">
+                <input class="search-button" id="submit-cocktail" type="submit" value="Go!">
             </form>
             <h3 id="cocktail-heading" class="hidden">Special Cocktails:</h3>
             <div id="cocktail-results" class="hidden">
@@ -63,7 +91,7 @@ function searchScreen() {
             <form id="meal-search">
                 <label for="meal-name">Type the name of a special meal to find recipes.</label>
                 <input type="text" id="meal-name" name="meal-name" value= "tacos" required>
-                <input class="button" id="submit-meal" type="submit" value="Go!">
+                <input class="search-button" id="submit-meal" type="submit" value="Go!">
             </form>
             <h3 id="meal-heading" class="hidden">Special Meals:</h3>
             <div id="meal-results" class="hidden">
@@ -131,7 +159,6 @@ function displayCocktailRecipes(responseJson) {
     $('#cocktail-results').empty();
 
 
-
     // dateModified: "2015-08-18 14:42:59"
     // idDrink: "11007"
     // strAlcoholic: "Alcoholic"
@@ -189,29 +216,34 @@ function displayCocktailRecipes(responseJson) {
     // strVideo: null
 
 
-
+if(responseJson.drinks.length == 0) { 
+    alert("no results")
+}
+else {
     // iterate through the data array
     for (let i = 0; i < responseJson.drinks.length; i++) {
         // for each recipe object in the cocktails 
         //array, add a list item to the results 
         //with thumbnail
-
         $('#cocktail-results').append(
             `<li class="recipe">
                 <h4>${responseJson.drinks[i].strDrink}</h4>
                 <img src='${responseJson.drinks[i].strDrinkThumb}' class='thumb'>
                 <ul>
-                    <li>${responseJson.drinks[i].strMeasure1} ${responseJson.drinks[i].strIngredient1}</li>
-                    <li>${responseJson.drinks[i].strMeasure2} ${responseJson.drinks[i].strIngredient2}</li>
-                    <li>${responseJson.drinks[i].strMeasure3} ${responseJson.drinks[i].strIngredient3}</li>
-                    <li>${responseJson.drinks[i].strMeasure4} ${responseJson.drinks[i].strIngredient4}</li>
-                    <li>${responseJson.drinks[i].strMeasure5} ${responseJson.drinks[i].strIngredient5}</li>
-                    <li>${responseJson.drinks[i].strMeasure6} ${responseJson.drinks[i].strIngredient6}</li>
-                    <li>${responseJson.drinks[i].strMeasure7} ${responseJson.drinks[i].strIngredient7}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure1)} ${checkString(responseJson.drinks[i].strIngredient1)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure2)} ${checkString(responseJson.drinks[i].strIngredient2)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure3)} ${checkString(responseJson.drinks[i].strIngredient3)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure4)} ${checkString(responseJson.drinks[i].strIngredient4)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure5)} ${checkString(responseJson.drinks[i].strIngredient5)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure6)} ${checkString(responseJson.drinks[i].strIngredient6)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure7)} ${checkString(responseJson.drinks[i].strIngredient7)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure8)} ${checkString(responseJson.drinks[i].strIngredient8)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure9)} ${checkString(responseJson.drinks[i].strIngredient9)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure10)} ${checkString(responseJson.drinks[i].strIngredient10)}</li>
                 </ul>
                 <p>${responseJson.drinks[i].strInstructions}</p>
             </li>`
-        )
+        )}
     };
     //display the results section  
     $('#cocktail-heading').removeClass('hidden');
@@ -223,16 +255,20 @@ function displayMealRecipes(responseJson) {
     console.log(responseJson);
     $('#meal-results').empty();
     // iterate through the meal array
+    if(responseJson.meals.length == 0) {
+        alert("no results")
+    }
+    else {
     for (let i = 0; i < responseJson.meals.length; i++) {
         // for each recipe object in the meals 
         //array, add a list item to the results 
         //with thumbnail
         // if (responseJson.meals=="null"){
-        //     $('#meal-error-msg').append(
-        //         `<p>Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.</p>`
-        //     )
-        // }
-        // else
+        //      $('#meal-error-msg').append(
+        //          `<p>Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.</p>`
+        //      )
+        //  }
+        //  else
         $('#meal-results').append(
             `<li class="recipe">
                 <h4>${responseJson.meals[i].strMeal}</h4>
@@ -251,7 +287,7 @@ function displayMealRecipes(responseJson) {
                 </ul>
                 <p>${responseJson.meals[i].strInstructions}</p>
             </li>`
-        )
+        )}
     };
     //display the results section  
     $('#meal-heading').removeClass('hidden');
