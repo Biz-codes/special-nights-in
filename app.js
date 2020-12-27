@@ -71,11 +71,7 @@ function searchScreen() {
                     <li></li>
                 </ul>
             </div>
-            <div id="meal-error-msg" class="hidden">
-                <p>
-                    Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.
-                </p>
-            </div>
+            <div id="meal-error-msg"></div>
         </div>
 
     </section>
@@ -231,7 +227,12 @@ function displayMealRecipes(responseJson) {
         // for each recipe object in the meals 
         //array, add a list item to the results 
         //with thumbnail
-
+        // if (responseJson.meals=="null"){
+        //     $('#meal-error-msg').append(
+        //         `<p>Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.</p>`
+        //     )
+        // }
+        // else
         $('#meal-results').append(
             `<li class="recipe">
                 <h4>${responseJson.meals[i].strMeal}</h4>
@@ -354,7 +355,8 @@ function getMeals(searchTerm) {
         })
         .then(responseJson => displayMealRecipes(responseJson))
         .catch(err => {
-            $('#js-error-message').text(`Oh no! ${err.message}`);
+            //alert('Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.')
+            $('#js-error-message').text(`Sorry, we couldn't find any meal matches. Please check your spelling or try a new search. ${err.message}`);
         });
 
 }

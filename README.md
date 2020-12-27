@@ -113,10 +113,7 @@ Search Page
     * https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
     * https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
 * Show preview image of cocktail: Add /preview to the end of the cocktail image URL: https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
-* Show preview image of ingredients: 
-    * https://www.thecocktaildb.com/images/ingredients/gin-Small.png (100x100 pixels)
-    * https://www.thecocktaildb.com/images/ingredients/gin-Medium.png (350x350 pixels)
-    * https://www.thecocktaildb.com/images/ingredients/gin.png (700x700 pixels)
+
 
 #### MealDB API
 * Search meal by name: https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
