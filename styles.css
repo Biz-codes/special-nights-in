@@ -85,16 +85,8 @@ body {
     width: 50%
 }
 
-#cocktails h4 {
-    color: rgb(88, 86, 86);
-}
-
-#cocktails input {
-    color: #e0c1b0;
-}
-
 #meals {
-    background-color: rgb(5, 153, 153);
+    background-color:#21b1c7;
     WIDTH: 50%;
 }
 
@@ -112,7 +104,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Euphoria Script", cursive;
+    font-family: "Bad Script", cursive;
 }
 
 h1 {
@@ -122,7 +114,7 @@ h1 {
 }
 
 h2 {
-    color: #0E79B2;
+    color:rgb(230, 175, 36);
     font-size: 250%;
     margin-top: 30px;
 }
@@ -130,40 +122,50 @@ h2 {
 h3 {
     font-size: 200%;
     margin-top: 20px;
-    color:rgb(153, 112, 7);
+    color:rgb(230, 175, 36);
 }
 
 h4 {
     font-size: 175%;
     margin-top: 10px;
-    color: #008417;
+}
+
+#cocktails h4 {
+    color: #98ecde;
+}
+
+#meals h4 {
+    color: #070743
 }
 
 input,
 select,
 button {
-    border: 1px solid #0E79B2;
+    border: 1px solid #a2d7f3;
     padding: 1% 5%;
     margin: 5px;
     border-radius: 10px;
-    color:  #08080c;
 }
 
 .search-page p {
     color: whitesmoke;
 }
 
-# meals input {
+#cocktails input {
+    color: #0191a7da;
+}
+
+#meals input {
     color: #070743;
 }
 
 .search-button {
-    background-color: #08080c;
-    border: 2px solid #6D7296;
+    background-color: whitesmoke;
+    border: 2px solid rgb(230, 175, 36);
 }
 
-.search-button:hover{
-    color: #810e1c;
+.search-button:hover {
+    color: rgb(230, 175, 36);
 }
 
 /*button:hover {
@@ -173,17 +175,18 @@ button {
 */
 
 button[type=submit] {
-    background-color:  #95e4ee;
-    border: 2px solid #0E79B2;
+    background-color:  #98ecde;
+    border: 2px solid #21b1c7;
 }
 
 button[type=submit]:hover {
-    color: #810e1c;
+    color: rgb(230, 175, 36);
 }
 
 label {
     display: block;
     margin: 10px;
+    color: whitesmoke;
 }
 
 img {

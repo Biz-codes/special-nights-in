@@ -226,19 +226,19 @@ else {
         //with thumbnail
         $('#cocktail-results').append(
             `<li class="recipe">
-                <h4><strong>${responseJson.drinks[i].strDrink}</strong></h4>
+                <h4>&#127864;  ${responseJson.drinks[i].strDrink}</h4>
                 <img src='${responseJson.drinks[i].strDrinkThumb}' class='thumb'>
                 <ul>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure1)} ${checkString(responseJson.drinks[i].strIngredient1)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure2)} ${checkString(responseJson.drinks[i].strIngredient2)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure3)} ${checkString(responseJson.drinks[i].strIngredient3)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure4)} ${checkString(responseJson.drinks[i].strIngredient4)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure5)} ${checkString(responseJson.drinks[i].strIngredient5)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure6)} ${checkString(responseJson.drinks[i].strIngredient6)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure7)} ${checkString(responseJson.drinks[i].strIngredient7)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure8)} ${checkString(responseJson.drinks[i].strIngredient8)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure9)} ${checkString(responseJson.drinks[i].strIngredient9)}</li>
-                    <li>&#127864;  ${checkInteger(responseJson.drinks[i].strMeasure10)} ${checkString(responseJson.drinks[i].strIngredient10)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure1)} ${checkString(responseJson.drinks[i].strIngredient1)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure2)} ${checkString(responseJson.drinks[i].strIngredient2)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure3)} ${checkString(responseJson.drinks[i].strIngredient3)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure4)} ${checkString(responseJson.drinks[i].strIngredient4)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure5)} ${checkString(responseJson.drinks[i].strIngredient5)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure6)} ${checkString(responseJson.drinks[i].strIngredient6)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure7)} ${checkString(responseJson.drinks[i].strIngredient7)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure8)} ${checkString(responseJson.drinks[i].strIngredient8)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure9)} ${checkString(responseJson.drinks[i].strIngredient9)}</li>
+                    <li>${checkInteger(responseJson.drinks[i].strMeasure10)} ${checkString(responseJson.drinks[i].strIngredient10)}</li>
                 </ul>
                 <p>${responseJson.drinks[i].strInstructions}</p>
             </li>`
@@ -273,7 +273,7 @@ function displayMealRecipes(responseJson) {
 
         $('#meal-results').append(
             `<li class="recipe">
-                <h4>${responseJson.meals[i].strMeal}</h4>
+                <h4>&#127858;  ${responseJson.meals[i].strMeal}</h4>
                 <img src='${responseJson.meals[i].strMealThumb}' class='thumb'>
                 <ul>
                     <li>${responseJson.meals[i].strMeasure1} ${responseJson.meals[i].strIngredient1}</li>
