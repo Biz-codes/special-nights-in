@@ -81,13 +81,12 @@ body {
 }
 
 #cocktails {
-    background-color: #bfece3;
+    background-color:#070743;
     width: 50%
 }
 
 #cocktails h4 {
     color: rgb(88, 86, 86);
-    /*color: #5618e6;*/
 }
 
 #cocktails input {
@@ -95,7 +94,7 @@ body {
 }
 
 #meals {
-    background-color: #ebd0c1;
+    background-color: rgb(5, 153, 153);
     WIDTH: 50%;
 }
 
@@ -118,8 +117,8 @@ h6 {
 
 h1 {
     font-size: 300%;
-    color: #810e1c;
-    font-family: "Alex Brush", cursive;
+    color: #070743;
+    font-family: "Major Mono Display", monospace;
 }
 
 h2 {
@@ -150,8 +149,12 @@ button {
     color:  #08080c;
 }
 
-input {
-    color: #95e4ee;
+.search-page p {
+    color: whitesmoke;
+}
+
+# meals input {
+    color: #070743;
 }
 
 .search-button {
@@ -202,6 +205,7 @@ ul {
 
 li {
     list-style: none;
+    color: whitesmoke
 }
 
 
