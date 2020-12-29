@@ -67,12 +67,12 @@ General styles (General Module, wrapping around the modules below)
 body {
   font-family: "Lora", serif;
   font-size: 16px;
-  color: #08080C;
+  color: #0A0A0A;
   background-color: whitesmoke;
   text-align: center;
   line-height: 1.5;
   height: auto;
-  border: 3px solid white;
+  border: 3px solid whitesmoke;
 }
 
 .search-page {
@@ -81,12 +81,13 @@ body {
 }
 
 #cocktails {
-    background-color:#070743;
+    background-color: #0A0A0A;
+    /*background-color:#070743;*/
     width: 50%
 }
 
 #meals {
-    background-color:#21b1c7;
+    background-color:#781E36;
     WIDTH: 50%;
 }
 
@@ -95,7 +96,7 @@ a {
 }
 
 a:hover {
-  color: red;
+  color: #781E36;
 }
 
 
@@ -109,7 +110,7 @@ h6 {
 
 h1 {
     font-size: 300%;
-    color: #070743;
+    color: #0A0A0A;
     font-family: "Major Mono Display", monospace;
 }
 
@@ -131,20 +132,21 @@ h4 {
 }
 
 #cocktails h4 {
-    color: #98ecde;
+    color: #781E36;
 }
 
 #meals h4 {
-    color: #070743
+    color: #0A0A0A
 }
 
 input,
 select,
 button {
-    border: 1px solid #a2d7f3;
+    border: 1px solid #781E36;
     padding: 1% 5%;
     margin: 5px;
     border-radius: 10px;
+    font-size: 125%;
 }
 
 .search-page p {
@@ -152,11 +154,11 @@ button {
 }
 
 #cocktails input {
-    color: #0191a7da;
+    color: #781E36;
 }
 
 #meals input {
-    color: #070743;
+    color: #0A0A0A;
 }
 
 .search-button {
@@ -165,22 +167,17 @@ button {
 }
 
 .search-button:hover {
-    color: rgb(230, 175, 36);
+    color:  rgb(230, 175, 36);
 }
 
-/*button:hover {
-    background-color: #EFC43F;
-    color: black;
-}
-*/
 
 button[type=submit] {
-    background-color:  #98ecde;
-    border: 2px solid #21b1c7;
+    background-color: rgb(230, 175, 36);
+    border: 2px solid #781E36;
 }
 
 button[type=submit]:hover {
-    color: rgb(230, 175, 36);
+    color: #781E36;
 }
 
 label {
