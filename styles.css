@@ -64,6 +64,9 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
+/*iPhone portrait*/
+
+
 body {
   font-family: "Lora", serif;
   font-size: 16px;
@@ -82,13 +85,14 @@ body {
 
 #cocktails {
     background-color: #0A0A0A;
-    /*background-color:#070743;*/
-    width: 50%
+    width: 50%;
+    padding: 2%;
 }
 
 #meals {
     background-color:#781E36;
-    WIDTH: 50%;
+    width: 50%;
+    padding: 2%;
 }
 
 a {
@@ -99,7 +103,6 @@ a:hover {
   color: #781E36;
 }
 
-
 h2,
 h3,
 h4,
@@ -108,91 +111,12 @@ h6 {
     font-family: "Bad Script", cursive;
 }
 
-h1 {
-    font-size: 300%;
-    color: #0A0A0A;
-    font-family: "Major Mono Display", monospace;
-}
-
-h2 {
-    color:rgb(230, 175, 36);
-    font-size: 250%;
-    margin-top: 30px;
-}
-
-h3 {
-    font-size: 200%;
-    margin-top: 20px;
-    color:rgb(230, 175, 36);
-}
-
-h4 {
-    font-size: 175%;
-    margin-top: 10px;
-}
-
 #cocktails h4 {
     color: #781E36;
 }
 
 #meals h4 {
     color: #0A0A0A
-}
-
-input,
-select,
-button {
-    border: 1px solid #781E36;
-    padding: 1% 5%;
-    margin: 5px;
-    border-radius: 10px;
-    font-size: 125%;
-}
-
-.search-page p {
-    color: whitesmoke;
-}
-
-#cocktails input {
-    color: #781E36;
-}
-
-#meals input {
-    color: #0A0A0A;
-}
-
-.search-button {
-    background-color: whitesmoke;
-    border: 2px solid rgb(230, 175, 36);
-}
-
-.search-button:hover {
-    color:  rgb(230, 175, 36);
-}
-
-
-button[type=submit] {
-    background-color: rgb(230, 175, 36);
-    border: 2px solid #781E36;
-}
-
-button[type=submit]:hover {
-    color: #781E36;
-}
-
-label {
-    display: block;
-    margin: 10px;
-    color: whitesmoke;
-}
-
-img {
-    width: 80%;
-    padding: 10px;
-}
-
-.thumb {
-    width: 50%;
 }
 
 .hidden {
@@ -208,17 +132,241 @@ li {
     color: whitesmoke
 }
 
+@media only screen and (min-width: 320px) {
 
-.recipe {
-    padding: 30px;
+    body {
+        border: 3px solid purple;
+    }
+
+    h1 {
+        font-size: 225%;
+        color: #0A0A0A;
+        font-family: "Major Mono Display", monospace;
+    }
+
+    footer {
+        font-family: "Major Mono Display", monospace;
+        font-size: 100%;
+        background-color: whitesmoke;
+        color: #781E36;
+        padding: 20px;
+    }
+
+    h2 {
+        color:rgb(230, 175, 36);
+        font-size: 200%;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 175%;
+        margin-top: 20px;
+        color:rgb(230, 175, 36);
+    }
+    
+    h4 {
+        font-size: 150%;
+        margin-top: 10px;
+    }
+
+    input, select, button {
+        border: 1px solid #781E36;
+        padding: 1% 5%;
+        margin: 5px;
+        border-radius: 10px;
+        font-size: 125%;
+    }
+    
+    .search-page p {
+        color: whitesmoke;
+    }
+
+    #cocktails input {
+        color: #781E36;
+    }
+
+    #meals input {
+        color: #0A0A0A;
+    }
+
+    .search-button {
+        background-color: whitesmoke;
+        border: 2px solid rgb(230, 175, 36);
+    }
+
+    .search-button:hover {
+        color:  rgb(230, 175, 36);
+    }
+
+
+    button[type=submit] {
+        background-color: rgb(230, 175, 36);
+        border: 2px solid #781E36;
+    }
+
+    button[type=submit]:hover {
+        color: #781E36;
+    }
+
+    img {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .thumb {
+        width: 100%;
+    }
+
+    #intro-screen p {
+        padding: 20px;
+        font-size: 100%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .recipe {
+        padding: 10px;
+    }
+
+    label {
+        /*display: block;*/
+        margin: 10px;
+        color: whitesmoke;
+    }
+
 }
 
-#intro-screen p {
-    padding: 20px;
-    font-size: 125%;
-    margin-left: 10%;
-    margin-right: 10%;
+
+/*iPhone landscape*/
+@media only screen and (min-width: 480px) {
+    body {
+        border: 3px solid green;
+    }
+
+    img {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .thumb {
+        width: 100%;
+    }
+   
 }
+
+/*Android landscape*/
+@media only screen and (min-width: 640px) {
+    body {
+        border: 3px solid pink;
+    }
+
+    h1 {
+        font-size: 300%;
+        margin: 10px;
+    }
+    
+    footer {
+        font-size: 125%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 250%;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-size: 200%;
+        margin-top: 20px;
+    }
+    
+    h4 {
+        font-size: 175%;
+        margin-top: 10px;
+    }
+    
+    input,
+    select,
+    button {
+        padding: 1% 5%;
+        margin: 5px;
+        font-size: 125%;
+    } 
+    
+    label {
+        display: block;
+        margin: 20px;
+    }
+    
+    img {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .thumb {
+        width: 90%;
+    }
+    
+    
+    .recipe {
+        padding: 30px;
+    }
+    
+    #intro-screen p {
+        padding: 20px;
+        font-size: 125%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+}
+
+/*iPad potrait*/
+@media only screen and (min-width: 768px) {
+    body {
+        border: 3px solid red;
+    }
+    
+    footer {
+        font-size: 150%;
+    }
+    
+    img {
+        width: 80%;
+        padding: 10px;
+    }
+    
+    .thumb {
+        width: 80%;
+    }
+    
+}
+
+/*iPad lanscape / small laptop*/
+@media only screen and (min-width: 1024px) {
+    body {
+        border: 3px solid blue;
+    }
+
+    .thumb {
+        width: 60%;
+    }
+}
+
+/*large desktop*/
+@media only screen and (min-width: 1600px) {
+    body {
+        border: 3px solid yellow;
+    }
+
+    .thumb {
+        width: 50%;
+    }
+}
+
+
+
+
 
 /*
 The clearfix Hack: If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container
@@ -373,45 +521,3 @@ Responsive styles
 
 place all the mobile tables styles below this line
 */
-
-/*iPhone portrait*/
-@media only screen and (min-width: 320px) {
-    body {
-        border: 3px solid purple;
-    }
-}
-
-/*iPhone landscape*/
-@media only screen and (min-width: 480px) {
-    body {
-        border: 3px solid green;
-    }
-}
-
-/*Android landscape*/
-@media only screen and (min-width: 640px) {
-    body {
-        border: 3px solid pink;
-    }
-}
-
-/*iPad potrait*/
-@media only screen and (min-width: 768px) {
-    body {
-        border: 3px solid red;
-    }
-}
-
-/*iPad lanscape / small laptop*/
-@media only screen and (min-width: 1024px) {
-    body {
-        border: 3px solid blue;
-    }
-}
-
-/*large desktop*/
-@media only screen and (min-width: 1600px) {
-    body {
-        border: 3px solid yellow;
-    }
-}

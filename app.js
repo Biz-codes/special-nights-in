@@ -39,11 +39,11 @@ function introScreen() {
     let htmlOutput = `
     <section id="intro-screen">
         <img src="website-images/hero-image.jpg" alt="people partying" class="hero-image">
-        <p>Do you ever find that celebrating a special occasion while staying at home just doesn't feel so special?</p> 
+        <p>Do you ever find that celebrating a <i>special</i> occasion while staying at home just doesn't feel so <i>special?</i></p> 
         <p> Today, there are many reasons why people are celebrating with nights in rather than nights out, ranging from: accessibility concerns for persons with disabilities; 
         to budgetary concerns about the high cost of eating out; to safety concerns about exposure to COVID-19.</p>
-        <p>Whatever your concerns, you can now find the perfect combination of a special cocktail recipe and a special meal recipe, to make your loved ones feel special 
-        on those special occasions spent at home! </p>
+        <p>Whatever your concerns, you can now find the perfect combination of a <i>special</i> cocktail recipe and a <i>special</i> meal recipe, to make your loved ones feel <i>special</i> 
+        on those <i>special</i> occasions spent at home! </p>
       <button id="start" type='submit'>Try It!</button>
     </section>
     `;
@@ -57,7 +57,7 @@ function searchScreen() {
         <div id="cocktails">
             <h2>Cocktail Search:</h2>
             <form id="cocktail-search">
-                <label for="cocktail-ingredient">Type the name of a special cocktail to find recipes.</label>
+                <label for="cocktail-ingredient">Type the name of a <i>special</i> cocktail to find recipes.</label>
                 <input type="text" id="cocktail-name" name="cocktail-name" value="margarita" required>
                 <input class="search-button" id="submit-cocktail" type="submit" value="Go!">
             </form>
@@ -88,7 +88,7 @@ function searchScreen() {
         <div id="meals">
             <h2>Meal Search:</h2>
             <form id="meal-search">
-                <label for="meal-name">Type the name of a special meal to find recipes.</label>
+                <label for="meal-name">Type the name of a <i>special</i> meal to find recipes.</label>
                 <input type="text" id="meal-name" name="meal-name" value= "tacos" required>
                 <input class="search-button" id="submit-meal" type="submit" value="Go!">
             </form>
