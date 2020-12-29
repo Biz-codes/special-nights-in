@@ -95,13 +95,14 @@ body {
     padding: 2%;
 }
 
-a {
+/*a {
   text-decoration: none;
 }
 
 a:hover {
   color: #781E36;
 }
+*/
 
 h2,
 h3,
@@ -112,11 +113,11 @@ h6 {
 }
 
 #cocktails h4 {
-    color: #781E36;
+    color: #D1476C;
 }
 
 #meals h4 {
-    color: #0A0A0A
+    color: #BABABA
 }
 
 .hidden {
@@ -152,8 +153,8 @@ li {
         padding: 20px;
     }
 
+    
     h2 {
-        color:rgb(230, 175, 36);
         font-size: 200%;
         margin-top: 30px;
     }
@@ -161,9 +162,16 @@ li {
     h3 {
         font-size: 175%;
         margin-top: 20px;
-        color:rgb(230, 175, 36);
     }
     
+    #cocktails h2, #cocktails h3 {
+        color: #E6AF24;
+    }
+
+    #meals h2, h3 {
+        color:#F4DA9A;
+    }
+
     h4 {
         font-size: 150%;
         margin-top: 10px;
@@ -188,19 +196,22 @@ li {
     #meals input {
         color: #0A0A0A;
     }
+    #cocktail-name, #meal-name {
+        width: 95%;
+    }
 
     .search-button {
         background-color: whitesmoke;
-        border: 2px solid rgb(230, 175, 36);
+        border: 2px solid #E6AF24;
     }
 
     .search-button:hover {
-        color:  rgb(230, 175, 36);
+        color: #E6AF24;
     }
 
 
     button[type=submit] {
-        background-color: rgb(230, 175, 36);
+        background-color: #E6AF24
         border: 2px solid #781E36;
     }
 
@@ -252,6 +263,10 @@ li {
         width: 100%;
     }
    
+    #cocktail-name, #meal-name {
+        width: 90%;
+    }
+
 }
 
 /*Android landscape*/
@@ -307,7 +322,10 @@ li {
         width: 90%;
     }
     
-    
+    #cocktail-name, #meal-name {
+        width: 80%;
+    }
+
     .recipe {
         padding: 30px;
     }
@@ -340,6 +358,10 @@ li {
         width: 80%;
     }
     
+    #cocktail-name, #meal-name {
+        width: 60%;
+    }
+
 }
 
 /*iPad lanscape / small laptop*/
@@ -351,6 +373,11 @@ li {
     .thumb {
         width: 60%;
     }
+
+    #cocktail-name, #meal-name {
+        width: 40%;
+    }
+
 }
 
 /*large desktop*/
