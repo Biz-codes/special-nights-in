@@ -1,26 +1,9 @@
-
-/*
-The CSS code gets to executed from top to bottom and left ro right
-
-Basic rules to write CSS
-- write GENERAL rules first (for all the paragraph tags in the website for example) and only after that write CSS for SPECIFIC tags (for example the paragraph tags inside the footer)
-- write the css styles to define for the parent (outside) container and THEN the children (inside containers) of that parent and THEN the children (inside containers) of the child above
-*/
-
-
-/* -------------------------------------
-CSS reset
-Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
-*/
-
 * {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
-    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
     box-sizing: border-box;
-    /*reset Chrome user agent styles*/
     -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
     -webkit-margin-start: 0px;
@@ -29,7 +12,6 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
     -webkit-padding-after: 0px;
     -webkit-padding-start: 0px;
     -webkit-padding-end: 0px;
-    /*reset Firefox user agent styles*/
     -moz-margin-before: 0px;
     -moz-margin-after: 0px;
     -moz-margin-start: 0px;
@@ -38,7 +20,6 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
     -moz-padding-after: 0px;
     -moz-padding-start: 0px;
     -moz-padding-end: 0px;
-    /*reset Internet Explorer user agent styles*/
     -ms-margin-before: 0px;
     -ms-margin-after: 0px;
     -ms-margin-start: 0px;
@@ -47,7 +28,6 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
     -ms-padding-after: 0px;
     -ms-padding-start: 0px;
     -ms-padding-end: 0px;
-    /*reset Opera user agent styles*/
     -o-margin-before: 0px;
     -o-margin-after: 0px;
     -o-margin-start: 0px;
@@ -59,13 +39,7 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
 }
 
 
-/* -------------------------------------
-General styles (General Module, wrapping around the modules below)
-(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
-*/
-
-/*iPhone portrait*/
-
+/* General styles*/
 
 body {
   font-family: "Lora", serif;
@@ -75,12 +49,10 @@ body {
   text-align: center;
   line-height: 1.5;
   height: auto;
-  /* border: 3px solid whitesmoke; */
 }
 
 /*
-The clearfix Hack: If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container
-https://www.w3schools.com/css/css_float_clear.asp
+The clearfix Hack
 */
 .clearfix::after {
     content: "";
@@ -88,7 +60,6 @@ https://www.w3schools.com/css/css_float_clear.asp
     display: table;
   }
   
-
 .search-page {
     display: flex;
     justify-content: center;
@@ -105,15 +76,6 @@ https://www.w3schools.com/css/css_float_clear.asp
     width: 50%;
     padding: 2%;
 }
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: #781E36;
-}
-
 
 h2,
 h3,
@@ -144,11 +106,8 @@ li {
     color: whitesmoke
 }
 
+/*iPhone portrait*/
 @media only screen and (min-width: 320px) {
-
-    /* body {
-        border: 3px solid purple;
-    } */
 
     h1 {
         font-size: 225%;
@@ -164,7 +123,6 @@ li {
         padding: 20px;
     }
 
-    
     h2 {
         font-size: 200%;
         margin-top: 30px;
@@ -179,7 +137,7 @@ li {
         color: #E6AF24;
     }
 
-    #meals h2, h3 {
+    #meals h2, #meals h3 {
         color:#F4DA9A;
     }
 
@@ -195,8 +153,25 @@ li {
         border-radius: 10px;
         font-size: 125%;
     }
+
+    #intro-screen p {
+        padding: 20px;
+        font-size: 100%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
     
     .search-page p {
+        color: whitesmoke;
+    }
+
+    .recipe {
+        padding: 10px;
+    }
+
+    label {
+        /*display: block;*/
+        margin: 10px;
         color: whitesmoke;
     }
 
@@ -207,6 +182,7 @@ li {
     #meals input {
         color: #0A0A0A;
     }
+
     #cocktail-name, #meal-name {
         width: 95%;
     }
@@ -219,7 +195,6 @@ li {
     .search-button:hover {
         color: #E6AF24;
     }
-
 
     button[type=submit] {
         background-color: #E6AF24
@@ -239,31 +214,15 @@ li {
         width: 100%;
     }
 
-    #intro-screen p {
-        padding: 20px;
-        font-size: 100%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    .recipe {
-        padding: 10px;
-    }
-
-    label {
-        /*display: block;*/
-        margin: 10px;
-        color: whitesmoke;
-    }
-
 }
 
 
 /*iPhone landscape*/
 @media only screen and (min-width: 480px) {
-    /* body {
-        border: 3px solid green;
-    } */
+
+    #cocktail-name, #meal-name {
+        width: 90%;
+    }
 
     img {
         width: 100%;
@@ -274,17 +233,10 @@ li {
         width: 100%;
     }
    
-    #cocktail-name, #meal-name {
-        width: 90%;
-    }
-
 }
 
 /*Android landscape*/
 @media only screen and (min-width: 640px) {
-    /* body {
-        border: 3px solid pink;
-    } */
 
     h1 {
         font-size: 300%;
@@ -311,19 +263,32 @@ li {
         margin-top: 10px;
     }
     
-    input,
-    select,
-    button {
+    input, select, button {
         padding: 1% 5%;
         margin: 5px;
         font-size: 125%;
     } 
-    
+
+    #intro-screen p {
+        padding: 20px;
+        font-size: 125%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .recipe {
+        padding: 30px;
+    }
+
     label {
         display: block;
         margin: 20px;
     }
-    
+
+     #cocktail-name, #meal-name {
+        width: 80%;
+    }
+
     img {
         width: 90%;
         padding: 20px;
@@ -333,33 +298,19 @@ li {
         width: 90%;
     }
     
-    #cocktail-name, #meal-name {
-        width: 80%;
-    }
-
-    .recipe {
-        padding: 30px;
-    }
-    
-    #intro-screen p {
-        padding: 20px;
-        font-size: 125%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
 }
 
 /*iPad potrait*/
 @media only screen and (min-width: 768px) {
-    /* body {
-        border: 3px solid red;
-    } */
-    
+
     footer {
         font-size: 150%;
     }
-    
+
+    #cocktail-name, #meal-name {
+        width: 60%;
+
+    }
     img {
         width: 80%;
         padding: 10px;
@@ -369,35 +320,26 @@ li {
         width: 80%;
     }
     
-    #cocktail-name, #meal-name {
-        width: 60%;
-    }
-
 }
 
 /*iPad lanscape / small laptop*/
 @media only screen and (min-width: 1024px) {
-    /* body {
-        border: 3px solid blue;
-    } */
-
-    .thumb {
-        width: 60%;
-    }
 
     #cocktail-name, #meal-name {
         width: 40%;
+    }
+
+    .thumb {
+        width: 60%;
     }
 
 }
 
 /*large desktop*/
 @media only screen and (min-width: 1600px) {
-    /* body {
-        border: 3px solid yellow;
-    } */
 
     .thumb {
         width: 50%;
     }
+    
 }
