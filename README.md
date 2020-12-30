@@ -128,17 +128,18 @@ Search Page
     * https://www.themealdb.com/images/ingredients/Lime-Small.png
 
 
-### 7. Screenshots (to do later)
-(Example) Landing Page
+### 7. Screenshots 
+Landing Page
 :-------------------------:
-![Landing Page](/github-images/screenshots/landing-page-screenshot.png)
-Register Page
-![Register Page](/github-images/screenshots/register-page-screenshot.png)
+![Landing Page](/github-images/screenshots/landing-page.png)
+Search Page
+![Search Page](/github-images/screenshots/search-page.png)
 
 
 
-### 8. Development Roadmap (to do later)
+### 8. Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-* (Example) add more functionality
-
+* add functionality to filter meal results by main ingredient
+* add functionality to filter cocktail results by ingredient
+* add functionality to open recipes in a new tab
 
