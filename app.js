@@ -45,7 +45,7 @@ function introScreen() {
         to budgetary concerns about the high cost of eating out; to safety concerns about exposure to COVID-19.</p>
         <p>Whatever your concerns, you can now find the perfect combination of a <i>special</i> cocktail recipe and a <i>special</i> meal recipe, to make your loved ones feel <i>special</i> 
         on those <i>special</i> occasions spent at home! </p>
-      <button id="start" type='submit'>Try It!</button>
+      <button id="start" type="submit">Try It!</button>
     </section>
     `;
     $("main").html(htmlOutput);
@@ -79,11 +79,6 @@ function searchScreen() {
                     </li>
                 </ul>
             </div>
-            <div id="cocktail-error-msg" class="hidden">
-                <p>
-                    Sorry, we couldn't find any cocktail matches. Please check your spelling or try a new search.
-                </p>
-            </div>
         </div>
 
         <div id="meals">
@@ -109,7 +104,7 @@ function searchScreen() {
 
 //shows search screen when Try It button is clicked
 function handleStartClick() {
-    $('main').on('click', '#start', (event) => {
+    $("main").on("click", "#start", (event) => {
         event.preventDefault();
         searchScreen();
     });
@@ -117,10 +112,10 @@ function handleStartClick() {
 
 
 function handleCocktailSearch() {
-    $('main').on('submit', '#cocktail-search', (event) => {
+    $("main").on("submit", "#cocktail-search", (event) => {
         event.preventDefault();
         //turn user input into a value
-        let searchTerm = $('#cocktail-name').val();
+        let searchTerm = $("#cocktail-name").val();
         //if the search term is empty, display an error
         if (searchTerm == "") {
             alert("Please input a cocktail name.");
@@ -133,10 +128,10 @@ function handleCocktailSearch() {
 }
 
 function handleMealSearch() {
-    $('main').on('submit', '#meal-search', (event) => {
+    $("main").on("submit", "#meal-search", (event) => {
         event.preventDefault();
         //turn user input into a value
-        let searchTerm = $('#meal-name').val();
+        let searchTerm = $("#meal-name").val();
         //if the search term is empty, display an error
         if (searchTerm == "") {
             alert("Please input a meal name.");
@@ -152,14 +147,14 @@ function handleMealSearch() {
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    return queryItems.join('&');
+    return queryItems.join("&");
 }
 
 //render cocktail results to DOM
 function displayCocktailRecipes(responseJson) {
-    $('#cocktail-results').empty();
+    $("#cocktail-results").empty();
     if (responseJson.drinks == null) {
-        $('#cocktail-results').append(
+        $("#cocktail-results").append(
             `<li class="recipe">
             <h4>&#127864;  No results:</h4>
             <p>Sorry, we couldn't find any cocktail matches. Please check your spelling or try a new search.</p>
@@ -171,10 +166,10 @@ function displayCocktailRecipes(responseJson) {
             // for each recipe object in the cocktails 
             //array, add a list item to the results 
             //with thumbnail
-            $('#cocktail-results').append(
+            $("#cocktail-results").append(
                 `<li class="recipe">
                 <h4>&#127864;  ${responseJson.drinks[i].strDrink}</h4>
-                <img src='${responseJson.drinks[i].strDrinkThumb}' class='thumb'>
+                <img src="${responseJson.drinks[i].strDrinkThumb}" class="thumb">
                 <ul>
                     <li>${checkInteger(responseJson.drinks[i].strMeasure1)} ${checkString(responseJson.drinks[i].strIngredient1)}</li>
                     <li>${checkInteger(responseJson.drinks[i].strMeasure2)} ${checkString(responseJson.drinks[i].strIngredient2)}</li>
@@ -193,15 +188,15 @@ function displayCocktailRecipes(responseJson) {
         }
     };
     //display the results section  
-    $('#cocktail-heading').removeClass('hidden');
-    $('#cocktail-results').removeClass('hidden');
+    $("#cocktail-heading").removeClass("hidden");
+    $("#cocktail-results").removeClass("hidden");
 };
 
 //render meal results to DOM
 function displayMealRecipes(responseJson) {
-    $('#meal-results').empty();
+    $("#meal-results").empty();
     if (responseJson.meals == null) {
-        $('#meal-results').append(
+        $("#meal-results").append(
             `<li class="recipe">
             <h4>&#127858;  No results:</h4>
             <p>Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.</p>
@@ -213,10 +208,10 @@ function displayMealRecipes(responseJson) {
             // for each recipe object in the meals 
             //array, add a list item to the results 
             //with thumbnail
-            $('#meal-results').append(
+            $("#meal-results").append(
                 `<li class="recipe">
                 <h4>&#127858;  ${responseJson.meals[i].strMeal}</h4>
-                <img src='${responseJson.meals[i].strMealThumb}' class='thumb'>
+                <img src="${responseJson.meals[i].strMealThumb}" class="thumb">
                 <ul>
                     <li>${responseJson.meals[i].strMeasure1} ${responseJson.meals[i].strIngredient1}</li>
                     <li>${responseJson.meals[i].strMeasure2} ${responseJson.meals[i].strIngredient2}</li>
@@ -235,8 +230,8 @@ function displayMealRecipes(responseJson) {
         }
     };
     //display the results section  
-    $('#meal-heading').removeClass('hidden');
-    $('#meal-results').removeClass('hidden');
+    $("#meal-heading").removeClass("hidden");
+    $("#meal-results").removeClass("hidden");
 }
 
 //get cocktails from the api using formatted parameters
@@ -256,7 +251,7 @@ function getCocktails(searchTerm) {
         })
         .then(responseJson => displayCocktailRecipes(responseJson))
         .catch(err => {
-            $('#js-error-message').text(`Oh no! ${err.message}`);
+            $("#js-error-message").text(`Oh no! ${err.message}`);
         });
 }
 
@@ -266,7 +261,7 @@ function getMeals(searchTerm) {
         s: searchTerm,
     };
     const queryString = formatQueryParams(params);
-    const url = mealSearchURL + '?' + queryString;
+    const url = mealSearchURL + "?" + queryString;
 
     fetch(url)
         .then(response => {
@@ -277,7 +272,7 @@ function getMeals(searchTerm) {
         })
         .then(responseJson => displayMealRecipes(responseJson))
         .catch(err => {
-            $('#js-error-message').text(`Oh no! ${err.message}`);
+            $("#js-error-message").text(`Oh no! ${err.message}`);
         });
 
 }
