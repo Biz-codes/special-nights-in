@@ -6,6 +6,7 @@ const cocktailSearchURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.ph
 const mealSearchURL = 'https://www.themealdb.com/api/json/v1/1/search.php';
 // These functions return HTML templates
 
+//returns empty value if the number is NOT valid
 function checkInteger(inputInteger) {
     let outputValue = inputInteger;
     if (inputInteger == "") {
@@ -34,7 +35,7 @@ function checkString(inputString) {
     return outputText;
 }
 
-//Start Screen
+//Start Screen html
 function introScreen() {
     let htmlOutput = `
     <section id="intro-screen">
@@ -50,7 +51,7 @@ function introScreen() {
     $("main").html(htmlOutput);
 }
 
-
+//Search screen html
 function searchScreen() {
     let htmlOutput = `
     <section id ="search-page" class="search-page">
@@ -106,6 +107,7 @@ function searchScreen() {
     $("main").html(htmlOutput);
 }
 
+//shows search screen when Try It button is clicked
 function handleStartClick() {
     $('main').on('click', '#start', (event) => {
         event.preventDefault();
@@ -113,12 +115,12 @@ function handleStartClick() {
     });
 }
 
+
 function handleCocktailSearch() {
     $('main').on('submit', '#cocktail-search', (event) => {
         event.preventDefault();
-        //console.log("inside handleCocktailSearch")
+        //turn user input into a value
         let searchTerm = $('#cocktail-name').val();
-        //console.log(searchTerm)
         //if the search term is empty, display an error
         if (searchTerm == "") {
             alert("Please input a cocktail name.");
@@ -133,9 +135,8 @@ function handleCocktailSearch() {
 function handleMealSearch() {
     $('main').on('submit', '#meal-search', (event) => {
         event.preventDefault();
-        //console.log("inside handleMealSearch")
+        //turn user input into a value
         let searchTerm = $('#meal-name').val();
-        //console.log(searchTerm)
         //if the search term is empty, display an error
         if (searchTerm == "") {
             alert("Please input a meal name.");
@@ -147,14 +148,15 @@ function handleMealSearch() {
     });
 }
 
+//build url that will call api
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
 
+//render cocktail results to DOM
 function displayCocktailRecipes(responseJson) {
-    // console.log(responseJson);
     $('#cocktail-results').empty();
     if (responseJson.drinks == null) {
         $('#cocktail-results').append(
@@ -165,7 +167,6 @@ function displayCocktailRecipes(responseJson) {
         )
     } 
     else {
-        // iterate through the data array
         for (let i = 0; i < responseJson.drinks.length; i++) {
             // for each recipe object in the cocktails 
             //array, add a list item to the results 
@@ -196,11 +197,9 @@ function displayCocktailRecipes(responseJson) {
     $('#cocktail-results').removeClass('hidden');
 };
 
-
+//render meal results to DOM
 function displayMealRecipes(responseJson) {
-    // console.log(responseJson);
     $('#meal-results').empty();
-    // iterate through the meal array
     if (responseJson.meals == null) {
         $('#meal-results').append(
             `<li class="recipe">
@@ -214,15 +213,6 @@ function displayMealRecipes(responseJson) {
             // for each recipe object in the meals 
             //array, add a list item to the results 
             //with thumbnail
-            // if (responseJson.meals=="null"){
-            //      $('#meal-error-msg').append(
-            //          `<p>Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.</p>`
-            //      )
-            //  }
-            //  else
-            //127864 cocktail emoji  127858 meal emoji
-
-
             $('#meal-results').append(
                 `<li class="recipe">
                 <h4>&#127858;  ${responseJson.meals[i].strMeal}</h4>
@@ -249,19 +239,16 @@ function displayMealRecipes(responseJson) {
     $('#meal-results').removeClass('hidden');
 }
 
+//get cocktails from the api using formatted parameters
 function getCocktails(searchTerm) {
-    // console.log(searchTerm);
     const params = {
         s: searchTerm,
     };
     const queryString = formatQueryParams(params);
     const url = cocktailSearchURL + '?' + queryString;
 
-    //console.log(url)
-
     fetch(url)
         .then(response => {
-            // console.log(response);
             if (response.ok) {
                 return response.json();
             }
@@ -273,19 +260,16 @@ function getCocktails(searchTerm) {
         });
 }
 
+//get meals from the api using formatted parameters
 function getMeals(searchTerm) {
-    //console.log(searchTerm);
     const params = {
         s: searchTerm,
     };
     const queryString = formatQueryParams(params);
     const url = mealSearchURL + '?' + queryString;
 
-    // console.log(url)
-
     fetch(url)
         .then(response => {
-            // console.log(response);
             if (response.ok) {
                 return response.json();
             }
@@ -293,8 +277,7 @@ function getMeals(searchTerm) {
         })
         .then(responseJson => displayMealRecipes(responseJson))
         .catch(err => {
-            //alert('Sorry, we couldn't find any meal matches. Please check your spelling or try a new search.')
-            $('#js-error-message').text(`Sorry, we couldn't find any meal matches. Please check your spelling or try a new search. ${err.message}`);
+            $('#js-error-message').text(`Oh no! ${err.message}`);
         });
 
 }
@@ -305,7 +288,6 @@ function startUp() {
     handleStartClick()
     handleCocktailSearch()
     handleMealSearch()
-    //searchScreen()
 }
 
 $(startUp)
