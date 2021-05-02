@@ -51,6 +51,11 @@ body {
   height: auto;
 }
 
+footer a {
+    font-family: "Lora", serif;
+    font-size: 10px;
+}
+
 /*
 The clearfix Hack
 */
